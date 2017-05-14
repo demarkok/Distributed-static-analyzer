@@ -6,8 +6,8 @@ import java.util.stream.Collectors.toList
 import org.antlr.v4.runtime.{CharStreams, CommonTokenStream}
 import ru.spbau.kaysin.antlr4.{JavaBaseVisitor, JavaLexer, JavaParser}
 import ru.spbau.kaysin.scala.parser.domain.{CompilationUnit, Method}
-import scala.collection.JavaConversions._
-
+//import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object VisitorParser {
 
@@ -15,7 +15,7 @@ object VisitorParser {
     override def visitCompilationUnit(ctx: JavaParser.CompilationUnitContext): CompilationUnit = {
       val classVisitor = new ClassVisitor
 
-      val classes = ctx.typeDeclaration.toList
+      val classes = ctx.typeDeclaration.asScala
         .map(context => context.classDeclaration.accept(classVisitor))
 
       new CompilationUnit(classes.toSet)
@@ -27,7 +27,7 @@ object VisitorParser {
       val className = ctx.Identifier.getText
       val methodVisitor = new VisitorParser.MethodVisitor
 
-      val methods = ctx.classBody.classBodyDeclaration.toList
+      val methods = ctx.classBody.classBodyDeclaration.asScala
         .map(context => context.memberDeclaration.methodDeclaration)
         .filter(x => x != null)
         .map(context => context.accept(methodVisitor))
