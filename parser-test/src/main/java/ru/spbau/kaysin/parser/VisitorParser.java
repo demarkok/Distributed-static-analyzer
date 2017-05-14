@@ -15,9 +15,9 @@ import ru.spbau.kaysin.antlr4.JavaParser;
 import ru.spbau.kaysin.antlr4.JavaParser.ClassDeclarationContext;
 import ru.spbau.kaysin.antlr4.JavaParser.CompilationUnitContext;
 import ru.spbau.kaysin.antlr4.JavaParser.MethodDeclarationContext;
-import ru.spbau.kaysin.parser.domain.Class;
 import ru.spbau.kaysin.parser.domain.CompilationUnit;
 import ru.spbau.kaysin.parser.domain.Method;
+import ru.spbau.kaysin.parser.domain.Class;
 
 
 public class VisitorParser implements ParserInterface {

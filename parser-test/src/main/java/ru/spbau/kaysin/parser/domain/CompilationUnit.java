@@ -7,7 +7,7 @@ import java.util.Collection;
  */
 public class CompilationUnit {
 
-    private final Collection<Class> classes;
+    private final Collection<ru.spbau.kaysin.parser.domain.Class> classes;
 
     @Override
     public String toString() {
@@ -16,7 +16,7 @@ public class CompilationUnit {
             '}';
     }
 
-    public CompilationUnit(Collection<Class> classes) {
+    public CompilationUnit(Collection<ru.spbau.kaysin.parser.domain.Class> classes) {
         this.classes = classes;
     }
 }
