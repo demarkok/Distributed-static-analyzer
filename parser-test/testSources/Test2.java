@@ -1,8 +1,8 @@
 package foo.bar;
 
-import foo.bar.Test2;
+import foo.bar.Test1;
 
-public class Test1 {
+public class Test2 {
 
 
     public int foo() {
