@@ -1,4 +1,4 @@
-package foo.bar;
+package foo.baz;
 
 import foo.bar.Test2;
 

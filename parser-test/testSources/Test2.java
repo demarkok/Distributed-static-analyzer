@@ -1,6 +1,6 @@
 package foo.bar;
 
-import foo.bar.Test1;
+import foo.baz.Test1;
 
 public class Test2 {
 
