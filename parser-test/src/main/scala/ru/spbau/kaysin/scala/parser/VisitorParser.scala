@@ -52,13 +52,16 @@ object VisitorParser {
 
       val className = ctx.Identifier.getText
 
+      val extendsBlock =
+        if (ctx.typeType != null) Some(new ExtendsBlock(ctx.typeType.getText))
+        else None
 
       val methods = ctx.classBody.classBodyDeclaration.asScala
         .map(context => context.memberDeclaration.methodDeclaration)
         .filter(x => x != null)
         .map(context => context.accept(methodVisitor))
 
-      new codeEntities.Class(modifiers, className, methods.toSet)
+      new codeEntities.Class(modifiers, className, extendsBlock, methods.toSet)
     }
   }
 
